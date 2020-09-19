@@ -78,7 +78,7 @@ module.exports = msgHandler = async (client = new Client(), message) => {
                 const mediaData = await decryptMedia(encryptMedia, uaOverride)
                 const imageBase64 = `data:${_mimetype};base64,${mediaData.toString('base64')}`
                 client.sendImageAsSticker(from, imageBase64).then(() => {
-                    client.reply(from, 'Here\'s your sticker')
+                    client.reply(from, '*Sticker Telah Jadi. Makasih Telah Menggunakannya!!!*')
                     console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
                 })
             } else if (args[0] === 'nobg') {
@@ -93,7 +93,7 @@ module.exports = msgHandler = async (client = new Client(), message) => {
                     ? client.sendText(from, 'Maaf, link yang kamu kirim tidak memuat gambar. [No Image]')
                     : client.reply(from, 'Here\'s your sticker')).then(() => console.log(`Sticker Processed for ${processTime(t, moment())} Second`))
             } else {
-                await client.reply(from, 'Tidak ada gambar! Untuk membuka daftar perintah kirim #menu [Wrong Format]', id)
+                await client.reply(from, '*Tidak ada gambar! Untuk membuka daftar perintah kirim #menu [Wrong Format]*', id)
             }
             break
         }
